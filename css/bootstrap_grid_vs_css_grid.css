@@ -1,0 +1,80 @@
+
+
+body {
+  background-color: #222;
+  color: white;
+}
+
+.div-1st {
+  border: white solid .1px;
+}
+
+/* # a_a */
+.div-2nd {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* # a_b
+  . Grid com 2 espaços verticais com cada um tendo 12
+    espaços/colunas (que é o máximo)
+
+  . Se for desejado alterar a quantidade de colunas, isso terá
+    que ser feito num "Media Query", pois o valor configurado
+    aqui é convencionalmente pra ser fixo
+  
+  EXEMPLO:
+    @media (min-width: 100px) {
+      .classe {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+  */
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  
+  margin: 2rem 0 0 0;
+  border: magenta solid .1px;
+}
+
+/* a_c: Todas abaixo */
+.one {
+  grid-column-start: 1;
+}
+
+.two {
+  grid-column-start: 4;
+}
+
+.three {
+  grid-column-start: 8;
+}
+
+.four {
+  grid-column-start: 12;
+}
+
+/* # a_d */
+.div-3rd {
+  margin: 2rem 0 0 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* Quando se usa o parâmetro 2 customizado, e os elementos
+  do grid têm algum indicador de delimitação (aqui, botões),
+  os elementos se mostram muitos próximos. Isso pode ser 
+  incômodo e propriedades como "margin" não funcionarão
+
+  SOLUÇÃO:
+  Alterar o valor em [grid-template-rows], pois ele funciona 
+  como "margin-bottom-top", ao passo que, nos elementos, 
+  redefinir a largura de cada um para algo menor via "width".
+  que servirá como "margin-left-right"
+  */
+  grid-template-rows: repeat(4, 50px);
+  grid-template-columns: repeat(3, 100px);
+}
+
+.div-3rd .btn {
+  border-radius: 1rem;
+  width: 80%;
+}
