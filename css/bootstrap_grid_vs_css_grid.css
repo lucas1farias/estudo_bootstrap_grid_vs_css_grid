@@ -5,9 +5,13 @@ body {
   color: white;
 }
 
-.div-1st {
-  border: white solid .1px;
+h1 {
+  margin: 2rem;
 }
+
+/* .div-1st {
+  border: white solid .1px; 
+} */
 
 /* # a_a */
 .div-2nd {
@@ -31,12 +35,10 @@ body {
   */
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(12, 1fr);
-  
-  margin: 2rem 0 0 0;
-  border: magenta solid .1px;
+  /* border: magenta solid .1px; */
 }
 
-/* a_c: Todas abaixo */
+/* # a_c: Todas abaixo */
 .one {
   grid-column-start: 1;
 }
@@ -59,22 +61,40 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  /* Quando se usa o parâmetro 2 customizado, e os elementos
-  do grid têm algum indicador de delimitação (aqui, botões),
-  os elementos se mostram muitos próximos. Isso pode ser 
-  incômodo e propriedades como "margin" não funcionarão
+  /* 
+  PROBLEMA
+    Quando se usa o parâmetro 2 customizado, e os elementos
+    do grid têm algum indicador de delimitação (aqui, botões),
+    os elementos se mostram muitos próximos. Propriedades como
+    "margin" não conseguirão separar os elementos
 
   SOLUÇÃO:
-  Alterar o valor em [grid-template-rows], pois ele funciona 
-  como "margin-bottom-top", ao passo que, nos elementos, 
-  redefinir a largura de cada um para algo menor via "width".
-  que servirá como "margin-left-right"
+    Alterar o valor em [grid-template-rows], pois ele funciona 
+    como "margin-bottom-top", ao passo que, nos elementos, 
+    redefinir a largura de cada um (logo abaixo) via "width",
+    que servirá como "margin-left-right"
   */
   grid-template-rows: repeat(4, 50px);
   grid-template-columns: repeat(3, 100px);
 }
 
+/* # a_d */
 .div-3rd .btn {
   border-radius: 1rem;
   width: 80%;
+}
+
+/* 
+# a_e
+1) A segunda div não possui a formatação do Bootstrap para 
+responsividade, portanto é criado um "Media Query" para alterar 
+o comportamento desta div
+
+2) Sem "Media Query": elementos somem com a diminuição da janela
+3) Com "Media Query": elementos descem com a diminuição da janela
+*/
+@media (max-width: 992px) {
+  .div-2nd {
+    display: block; 
+  }
 }
